@@ -1,0 +1,30 @@
+
+body{
+    text-align: center;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+}
+.header--topicon{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.header-topicon--img{
+    width: 100px;
+    aspect-ratio: 1/1;
+}
+.header-topicon--img img{
+    width: 100%;
+    height: 100%;
+}
+.header-topicon--title{
+    font-size: 50px;
+    font-weight: bold;
+}
+.header--navlist{
+    
+    display: flex;
+    align-items: center;
+}
