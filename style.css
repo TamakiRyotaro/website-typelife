@@ -1,13 +1,36 @@
 /*
 Theme Name: Type Life
 Description: Type Lifeのテンプレートです
-Version: 1.0
-Author: T.RYOTARO
-*/
+Version: 1.0 Author: T.RYOTARO */
 
-body{
-    text-align: center;
+/* 共通 */
+.visually-hidden {
+    position: fixed !important;
+    top: 0px !important;
+    left: 0px !important;
+    width: 4px !important;
+    height: 4px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    visibility: visible !important;
 }
+.wrapper {
+    /* width: min(89.33333%, 1000px); */
+    width: 89.33333%;
+    max-width: 1000px;
+    margin-inline: auto;
+}
+body {
+    color: #2b2a27;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+
 header{
     display: flex;
     justify-content: space-between;
@@ -29,27 +52,90 @@ header{
     height: 100%;
 }
 .header-topicon__title{
-    font-size: 50px;
+    font-size: clamp(2.5rem, 2.060rem + 1.878vw, 3.75rem);
     font-weight: bold;
 }
+
+/* ハンバーガーメニュー */
+
 nav {
-    height: 100px;
-    margin-right: 1vw;
+    position: fixed;
+    inset: 0 -100% 0 100%;
+    background-color: color-mix(in srgb, #ffffff, transparent 15%);
+    transition: all 0.3s ease-in-out;
 }
-.header__navlist{
-    display: flex;
-    align-items: center;
-    gap: 1vw;
+
+nav .header__navlist {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
-.header__navlist li {
-    background-color: black;
-    padding: 0.5vw 2vw;
-    border-radius: 100vw;
+nav .header__navlist a {
+    text-align: center;
+    display: block;
 }
-.header__navlist a {
-    color: white;
-    font-size: 18px;
+nav .header__navlist a:hover {
+    text-decoration: underline;
+}
+
+body.is-open {
+    overflow-y: hidden;
+}
+.ham-btn {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 18px;
+    right: 16px;
+}
+.ham-line {
+    width: 70%;
+    height: 3px;
+    background-color: #2b2a27;
+    display: block;
+    margin: auto;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.ham-line::before,
+.ham-line::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #2b2a27;
+    position: absolute;
+    transition: inherit;
+}
+.ham-line::before {
+    top: -15px;
+}
+.ham-line::after {
+    top: 15px;
+}
+.is-open {
+    nav {
+        translate: -100% 0;
+    }
+
+    .ham-line {
+        background-color: transparent;
+
+        &::before {
+            top: 0;
+            rotate: 35deg;
+        }
+
+        &::after {
+            top: 0;
+            rotate: -35deg;
+        }
+    }
 }
 
 
@@ -66,7 +152,7 @@ nav {
     background-color: rgba(0, 0, 0, 0.4);
     padding: 2vw;
     color: white;
-    font-size: 100px;
+    font-size: clamp(3.75rem, 3.310rem + 1.878vw, 5rem);
     font-weight: bold;
 }
 
@@ -74,4 +160,49 @@ footer{
     background: linear-gradient(to bottom,
                 rgb(238, 238, 238) 0%,
                 rgb(169, 184, 195) 100%);
+}
+footer{
+    text-align: center;
+}
+small{
+    display: inline-block;
+    padding-block: 5px;
+}
+
+
+/* ========================================================
+                PC用ブレイクポイント835px
+===========================================================*/
+@media (width > 835px) {
+    nav {
+        position: static;
+        inset: auto;
+        background-color: transparent;
+        transition: none;
+        height: 100px;
+        margin-right: 1vw;
+    }
+
+    nav .header__navlist {
+        flex-direction: row;
+        align-items: center;
+        gap: 1vw;
+        height: 100%;
+    }
+
+    nav .header__navlist a {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        padding: 0.5vw 2vw;
+        border-radius: 100vw;
+        color: white;
+        font-size: 18px;
+    }
+    nav .header__navlist a:hover {
+        background-color: rgb(81, 81, 81);
+    }
+    .ham-btn {
+        display: none;
+    }
 }

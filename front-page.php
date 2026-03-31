@@ -2,7 +2,7 @@
 <?php get_header(); ?>
 <div class="mv">
     <?php SCF::get("mv-image"); ?>
-    <p class="mv--title">System Engieering Service in Fukuoka</p>
+    <p class="mv__title">System Engieering Service<br> in Fukuoka</p>
 </div>
 
 <main>
