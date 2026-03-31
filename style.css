@@ -1,3 +1,9 @@
+/*
+Theme Name: Type Life
+Description: Type Lifeのテンプレートです
+Version: 1.0
+Author: T.RYOTARO
+*/
 
 body{
     text-align: center;
@@ -5,26 +11,67 @@ body{
 header{
     display: flex;
     justify-content: space-between;
+    background: linear-gradient(to bottom,
+        rgb(238, 238, 238) 0%,
+        rgb(169, 184, 195) 100%);
 }
-.header--topicon{
+.header__topicon{
     display: flex;
     align-items: center;
     gap: 5px;
 }
-.header-topicon--img{
+.header-topicon__img{
     width: 100px;
     aspect-ratio: 1/1;
 }
-.header-topicon--img img{
+.header-topicon__img img{
     width: 100%;
     height: 100%;
 }
-.header-topicon--title{
+.header-topicon__title{
     font-size: 50px;
     font-weight: bold;
 }
-.header--navlist{
-    
+nav {
+    height: 100px;
+    margin-right: 1vw;
+}
+.header__navlist{
     display: flex;
     align-items: center;
+    gap: 1vw;
+    height: 100%;
+}
+.header__navlist li {
+    background-color: black;
+    padding: 0.5vw 2vw;
+    border-radius: 100vw;
+}
+.header__navlist a {
+    color: white;
+    font-size: 18px;
+}
+
+
+/* top */
+.mv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./img/business.jpg);
+    object-fit: cover;
+    height: 600px;
+}
+.mv__title{
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 2vw;
+    color: white;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+footer{
+    background: linear-gradient(to bottom,
+                rgb(238, 238, 238) 0%,
+                rgb(169, 184, 195) 100%);
 }
