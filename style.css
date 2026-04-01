@@ -3,7 +3,16 @@ Theme Name: Type Life
 Description: Type Lifeのテンプレートです
 Version: 1.0 Author: T.RYOTARO */
 
-/* 共通 */
+/* ==========================================================
+                            共通部分
+============================================================= */
+
+/* ( PC用ブレイクポイント835px ) */
+@media (width > 835px) {}
+
+html {
+    font-size: 62.5%;
+}
 .visually-hidden {
     position: fixed !important;
     top: 0px !important;
@@ -19,18 +28,73 @@ Version: 1.0 Author: T.RYOTARO */
     visibility: visible !important;
 }
 .wrapper {
-    /* width: min(89.33333%, 1000px); */
     width: 89.33333%;
     max-width: 1000px;
     margin-inline: auto;
 }
 body {
+    background-color: #eeeeee;
     color: #2b2a27;
+    /* color: #787670; */
     font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1rem;
+    line-height: 1.875;
+}
+main {
+    display: block;
+    width: 100%;
+    padding-top: 48px;
+    margin-top: clamp(2.5rem, 1.620rem + 3.756vw, 5rem);
+    margin-bottom: clamp(2.5rem, 1.620rem + 3.756vw, 5rem);
+}
+.page-title {
+    color: #2b2a27;
+    margin-bottom: 0.833em;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.25em;
+}
+.page-title::before {
+    color: #2b2a27;
+    font-size: clamp(2.813rem, 2.218rem + 2.535vw, 4.5rem);
+    content: attr(data-title);
+    display: block;
+    font-weight:bold;
+    margin-bottom: 0.281em;
+    line-height: 0.8;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+.box-white {
+    padding: 60px 6.551% 92px;
+    margin-bottom: 74px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
 }
 
+/* パンくずリスト
+------------------------- */
+.breadcrumbs-wrapper {
+    margin-block-end: 2.5rem;
+    font-size: 0.8rem;
+    color: #666666;
+    line-height: 1.5;
+}
+.breadcrumbs a {
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+.breadcrumbs a:hover {
+    opacity: 0.7;
+}
+.breadcrumbs .current-item {
+    color: #2b2a27;
+    font-weight: bold;
+}
 
-
+/* ヘッダー
+------------------------- */
 header{
     display: flex;
     justify-content: space-between;
@@ -52,19 +116,20 @@ header{
     height: 100%;
 }
 .header-topicon__title{
+    letter-spacing: 0.05em;
+    color: #2b2a27;
     font-size: clamp(2.5rem, 2.060rem + 1.878vw, 3.75rem);
     font-weight: bold;
 }
 
-/* ハンバーガーメニュー */
-
+/* ハンバーガーメニュー
+------------------------- */
 nav {
     position: fixed;
     inset: 0 -100% 0 100%;
     background-color: color-mix(in srgb, #ffffff, transparent 15%);
     transition: all 0.3s ease-in-out;
 }
-
 nav .header__navlist {
     height: 100%;
     display: flex;
@@ -82,7 +147,9 @@ nav .header__navlist a {
 nav .header__navlist a:hover {
     text-decoration: underline;
 }
-
+nav .header__navlist .current {
+    color: #DC4B04;
+}
 body.is-open {
     overflow-y: hidden;
 }
@@ -137,15 +204,54 @@ body.is-open {
         }
     }
 }
+/* ( PC用ブレイクポイント835px ) */
+@media (width > 835px) {
+    nav {
+        position: static;
+        inset: auto;
+        background-color: transparent;
+        transition: none;
+        height: 100px;
+        margin-right: 1vw;
+    }
+    nav .header__navlist {
+        flex-direction: row;
+        align-items: center;
+        gap: 1vw;
+        height: 100%;
+    }
+    nav .header__navlist a {
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        padding: 0.5vw 2vw;
+        border-radius: 100vw;
+        color: white;
+        font-size: 18px;
+    }
+    nav .header__navlist a:hover {
+        background-color: rgb(81, 81, 81);
+    }
+    nav .header__navlist .current {
+        border: #DC4B04 solid 4px;
+        color: #F4F8FA;
+    }
+    .ham-btn {
+        display: none;
+    }
+}
 
 
-/* top */
-.mv{
+/* ==========================================================
+                トップページ(front-page.php)
+============================================================= */
+.mv {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(./img/business.jpg);
-    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     height: 600px;
 }
 .mv__title{
@@ -165,44 +271,111 @@ footer{
     text-align: center;
 }
 small{
+    color: #2b2a27;
     display: inline-block;
     padding-block: 5px;
 }
 
 
-/* ========================================================
-                PC用ブレイクポイント835px
-===========================================================*/
+/* ==========================================================
+                    会社についてページ(page-about.php)
+============================================================= */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about-image{
+    width: 300px;
+    height: 300px;
+}
+.about-image img{
+    width: 100%;
+    height: 100%;
+}
+.about-text h2 {
+    margin-bottom: 0.875em;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.75;
+}
+.about-list dl {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.about-list dl:not(:last-of-type) {
+    margin-bottom: 24px;
+}
+.about-list dt{
+  width: 6.625em;
+  margin-right: 2em;
+  background-color: rgba(196, 196, 196, 0.2);
+  border-radius: 5px;
+  text-align: center;
+}
+.about-list dd {
+    flex: 1 1 0;
+}
+.about-map{
+    width: 100%;
+    height: 100%;
+}
+.about-map iframe {
+    width: 100%;
+    height: 100%;
+}
 @media (width > 835px) {
-    nav {
-        position: static;
-        inset: auto;
-        background-color: transparent;
-        transition: none;
-        height: 100px;
-        margin-right: 1vw;
+    .about-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto auto;
     }
-
-    nav .header__navlist {
-        flex-direction: row;
-        align-items: center;
-        gap: 1vw;
-        height: 100%;
-    }
-
-    nav .header__navlist a {
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        padding: 0.5vw 2vw;
-        border-radius: 100vw;
-        color: white;
-        font-size: 18px;
-    }
-    nav .header__navlist a:hover {
-        background-color: rgb(81, 81, 81);
-    }
-    .ham-btn {
-        display: none;
+    .about-content>* {
+        place-self: center;
     }
 }
+/* ==========================================================
+                    業務内容ページ(page-business.php)
+============================================================= */
+
+/* ==========================================================
+                    お知らせ一覧ページ(home.php)
+============================================================= */
+
+/* ==========================================================
+                    お知らせカテゴリーぺージ(archive.php)
+============================================================= */
+
+/* ==========================================================
+                    お知らせ詳細ページ(single.php)
+============================================================= */
+
+/* ==========================================================
+                    採用情報ページ(page-recruit.php)
+============================================================= */
+
+/* ==========================================================
+                    お問い合わせページ(page-contact.php)
+============================================================= */
+
+/* ==========================================================
+                    404ページ(home.php)
+============================================================= */
+.page404-text-box {
+    max-width: 585px;
+    margin: 0 auto;
+    font-size: 0.9375rem;
+    color: #333;
+    line-height: 2.333;
+}
+
+.page404-text-box>p:not(:last-of-type) {
+    margin-bottom: 1.5em;
+}
+
+.page404-text-box a {
+    text-decoration: underline;
+}
+
+
