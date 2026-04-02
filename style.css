@@ -4,6 +4,31 @@ Description: Type Lifeのテンプレートです
 Version: 1.0 Author: T.RYOTARO */
 
 /* ==========================================================
+                            定義
+=============================================================*/ html {
+    font-size: 62.5%;
+}
+/* フォントサイズの定義 */
+:root {
+    --fs-ss: 1.2rem;
+    --fs-s: 1.4rem;
+    --fs-m: 1.6rem;
+    --fs-ml: 1.8rem;
+    --fs-ls: clamp(2rem, 1.859rem + 0.601vw, 2.4rem);
+    --fs-l: clamp(2.4rem, 2.118rem + 1.202vw, 3.2rem);
+    --fs-ll: clamp(3.2rem, 2.918rem + 1.202vw, 4rem);
+    --fs-xl: clamp(4.8rem, 4.237rem + 2.404vw, 6.4rem);
+}
+/* 余白の定義 */
+:root {
+    --space-ss: 0.8rem;
+    --space-s: 1.6rem;
+    --space-m: clamp(2.4rem, 2.118rem + 1.202vw, 3.2rem);
+    --space-l: clamp(3.2rem, 2.637rem + 2.404vw, 4.8rem);
+    --space-ll: clamp(4.8rem, 4.096rem + 3.005vw, 6.8rem);
+}
+
+/* ==========================================================
                             共通部分
 ============================================================= */
 
@@ -37,27 +62,27 @@ body {
     color: #2b2a27;
     /* color: #787670; */
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1rem;
+    font-size: 1.6rem;
     line-height: 1.875;
 }
-main {
+.subpage-main {
     display: block;
     width: 100%;
-    padding-top: 48px;
-    margin-top: clamp(2.5rem, 1.620rem + 3.756vw, 5rem);
-    margin-bottom: clamp(2.5rem, 1.620rem + 3.756vw, 5rem);
+    padding-top: var(--space-ll);
+    margin-top: clamp(4rem, 3.155rem + 3.606vw, 6.4rem);
+    margin-bottom: clamp(4rem, 3.155rem + 3.606vw, 6.4rem);
 }
 .page-title {
     color: #2b2a27;
     margin-bottom: 0.833em;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: clamp(2rem, 1.859rem + 0.601vw, 2.4rem);
     font-weight: bold;
     letter-spacing: 0.25em;
 }
 .page-title::before {
     color: #2b2a27;
-    font-size: clamp(2.813rem, 2.218rem + 2.535vw, 4.5rem);
+    font-size: clamp(4rem, 3.155rem + 3.606vw, 6.4rem);
     content: attr(data-title);
     display: block;
     font-weight:bold;
@@ -67,8 +92,8 @@ main {
     text-transform: uppercase;
 }
 .box-white {
-    padding: 60px 6.551% 92px;
-    margin-bottom: 74px;
+    padding: clamp(5.2rem, 4.918rem + 1.202vw, 6rem) 6.551% clamp(6rem, 4.873rem + 4.808vw, 9.2rem);
+    margin-bottom: clamp(5.6rem, 5.037rem + 2.404vw, 7.2rem);
     background-color: #FFFFFF;
     border-radius: 10px;
 }
@@ -76,8 +101,8 @@ main {
 /* パンくずリスト
 ------------------------- */
 .breadcrumbs-wrapper {
-    margin-block-end: 2.5rem;
-    font-size: 0.8rem;
+    margin-bottom: 4rem;
+    font-size: 1.2rem;
     color: #666666;
     line-height: 1.5;
 }
@@ -96,6 +121,7 @@ main {
 /* ヘッダー
 ------------------------- */
 header{
+    height: 10rem;
     display: flex;
     justify-content: space-between;
     background: linear-gradient(to bottom,
@@ -118,7 +144,7 @@ header{
 .header-topicon__title{
     letter-spacing: 0.05em;
     color: #2b2a27;
-    font-size: clamp(2.5rem, 2.060rem + 1.878vw, 3.75rem);
+    font-size: clamp(3.2rem, 2.918rem + 1.202vw, 4rem);
     font-weight: bold;
 }
 
@@ -136,8 +162,8 @@ nav .header__navlist {
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    gap: 2.8rem;
-    font-size: 1.2rem;
+    gap: 4rem;
+    font-size: 1.8rem;
     font-weight: 600;
 }
 nav .header__navlist a {
@@ -224,18 +250,23 @@ body.is-open {
         width: 100%;
         height: 100%;
         background-color: black;
+        box-shadow: 2px 3px 0 #DC4B04;
         padding: 0.5vw 2vw;
-        border-radius: 100vw;
+        border-radius: 9999px;
         color: white;
         font-size: 18px;
     }
     nav .header__navlist a:hover {
-        background-color: rgb(81, 81, 81);
+        text-decoration: none;
+        background-color: #DC4B04;
+        box-shadow: 2px 3px 0 black;
     }
     nav .header__navlist .current {
-        border: #DC4B04 solid 4px;
         color: #F4F8FA;
+        background-color: #DC4B04;
+        box-shadow: 2px 3px 0 black;
     }
+
     .ham-btn {
         display: none;
     }
@@ -252,16 +283,15 @@ body.is-open {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 600px;
+    height: 60rem;
 }
 .mv__title{
     background-color: rgba(0, 0, 0, 0.4);
     padding: 2vw;
     color: white;
-    font-size: clamp(3.75rem, 3.310rem + 1.878vw, 5rem);
+    font-size: clamp(4.8rem, 4.237rem + 2.404vw, 6.4rem);
     font-weight: bold;
 }
-
 footer{
     background: linear-gradient(to bottom,
                 rgb(238, 238, 238) 0%,
@@ -273,31 +303,50 @@ footer{
 small{
     color: #2b2a27;
     display: inline-block;
-    padding-block: 5px;
+    padding-block: 0.5rem;
 }
 
 
 /* ==========================================================
-                    会社についてページ(page-about.php)
+                会社についてページ(page-about.php)
 ============================================================= */
 .about-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+}
+.about-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
 .about-image{
-    width: 300px;
-    height: 300px;
+    aspect-ratio: 3/2;
+    margin-inline: 5%;
+    margin-bottom: var(--space-m);
 }
 .about-image img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}
+.about-text {
+    margin-bottom: var(--space-ll);
+    margin-inline: 5%;
 }
 .about-text h2 {
-    margin-bottom: 0.875em;
-    font-size: 1.5rem;
+    margin-bottom: var(--space-ss);
+    font-size: clamp(2rem, 1.859rem + 0.601vw, 2.4rem);
     font-weight: bold;
     line-height: 1.75;
+}
+.about-text p:not(:last-of-type) {
+    margin-bottom: var(--space-ss);
+}
+.about-list {
+    width: 37rem;
+    margin-bottom: var(--space-l);
 }
 .about-list dl {
     display: flex;
@@ -305,7 +354,7 @@ small{
     align-items: center;
 }
 .about-list dl:not(:last-of-type) {
-    margin-bottom: 24px;
+    margin-bottom: 1em;
 }
 .about-list dt{
   width: 6.625em;
@@ -317,28 +366,87 @@ small{
 .about-list dd {
     flex: 1 1 0;
 }
-.about-map{
+.about-map {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 2/1;
 }
 .about-map iframe {
     width: 100%;
     height: 100%;
 }
-@media (width > 835px) {
-    .about-content {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-template-rows: auto auto;
+
+@media (width > 990px) {
+    .about-flex {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
     }
-    .about-content>* {
-        place-self: center;
+    .about-list{
+        margin-bottom: 0;
+    }
+    .about-map {
+        width: 50%;
+        height: 30rem;
     }
 }
+
+
 /* ==========================================================
                     業務内容ページ(page-business.php)
 ============================================================= */
-
+.business-content{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+}
+.business-content>*{
+    padding: var(--space-s);
+}
+.business-image{
+    grid-row: 1/2;
+    grid-column: 1/2;
+    aspect-ratio: 3/2;
+    width: 100%;
+}
+.business-image img {
+    width: 100%;
+    height: 100%;
+}
+.business-text {
+    grid-row: 1/2;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.business-text h2 {
+    margin-bottom: var(--space-ss);
+    font-size: clamp(2rem, 1.859rem + 0.601vw, 2.4rem);
+    font-weight: bold;
+    line-height: 1.75;
+}
+.business-list{
+    grid-row: 2/3;
+    grid-column: 1/3;
+    text-align: center;
+}
+.business-list dl{
+    border-radius: 5px;
+    border: #81818183 solid 2px;
+    box-shadow: 2px 2px 2px rgb(151, 151, 151);
+}
+.business-list dl>* {
+    margin-block: 1em;
+}
+.business-list dt{
+    display: inline-block;
+    color: white;
+    padding: 0.2em 1em;
+    border-radius: 9999px;
+    background-color: black;
+}
 /* ==========================================================
                     お知らせ一覧ページ(home.php)
 ============================================================= */
@@ -363,9 +471,9 @@ small{
                     404ページ(home.php)
 ============================================================= */
 .page404-text-box {
-    max-width: 585px;
+    max-width: 80%;
     margin: 0 auto;
-    font-size: 0.9375rem;
+    font-size: 1.4rem;
     color: #333;
     line-height: 2.333;
 }
