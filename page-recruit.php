@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main>
+<main class="subpage-main">
     <?php if (have_posts()): ?>
         <?php while (have_posts()): the_post(); ?>
 

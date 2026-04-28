@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main>
+<main class="subpage-main">
 
     <h1 data-title="Not Found" class="page-title">ページが見つかりません</h1>
 

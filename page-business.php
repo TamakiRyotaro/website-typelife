@@ -13,8 +13,8 @@
                         <?php if (function_exists("bcn_display")) bcn_display(); ?>
                     </div>
                 </div>
-                <div class="business-content box-white">
 
+                <div class="business-content box-white">
                     <div class="business-image">
                         <?php echo wp_get_attachment_image(SCF::get("business-image"), "large"); ?>
                     </div>
